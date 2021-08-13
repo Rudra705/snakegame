@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="p5.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyCIEsM1RnBRnOEme_Uh9eDip_4cHVTobEA",
+          authDomain: "three-d-snake-game.firebaseapp.com",
+          projectId: "three-d-snake-game",
+          storageBucket: "three-d-snake-game.appspot.com",
+          messagingSenderId: "768883967062",
+          appId: "1:768883967062:web:8294c88b4822551ba0a7f7"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+    <title>3D Snake Game</title>
+    <style>
+        *{
+            margin: 0; 
+            padding: 0;
+        }
+        .leaderboard{
+            margin-left: 2%;
+            border: solid;
+            border-radius: 5px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="sketch.js"></script>
+
+    <div class="leaderboard">
+        <ol id="scorelist">
+
+        </ol>
+    </div>
+</body>
+
+</html>
