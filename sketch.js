@@ -1,8 +1,8 @@
 const CELLS_PER_DIMENSION = 11;
 const CELLS_RIGHT_OF_CENTER = (CELLS_PER_DIMENSION - 1) / 2;
 const STARTING_NUM_SEGMENTS = 3;
-const MS_PER_MOVE = 200;
-const AUTO_MS_PER_MOVE = 100;
+const MS_PER_MOVE = 350;
+const AUTO_MS_PER_MOVE = 300;
 const SPEEDUP_FACTOR = 3;
 var snakeImage;
 var food;
@@ -145,8 +145,7 @@ function newFoodPosition() {
 function moveSnake() {
   if (automatic_mode || !direction.equals(zeroVector)) {
     const newHeadPos = p5.Vector.add(segments[0], p5.Vector.mult(direction, cellWidth));
-    if (collides(newHeadPos)) {
-      // r = Math.round(random(1,2))
+    if (collides(newHeadPos)){
       
       lives = lives - 1;
       alert("Now you have " + lives + " lives left");
@@ -263,42 +262,7 @@ function drawFood() {
   stroke(255, 0, 0);
   fill(255, 0, 0, 60);
   drawReferenceStructures(food, itemWidth);
-  // r = Math.round(random(1,2));
-  // if(r){
-  // switch(r){
-  //   case 1:
-  //   //  drawFood();
-  //     texture(foodImage);
-  //     at(...food.array(), () => box(itemWidth));
-  //     stroke(255, 0, 0);
-  //     fill(255, 0, 0, 60);
-  //     drawReferenceStructures(food, itemWidth);
-  //    break;
-  //    case 2:
-  //      fill('blue')
-  //     //  const itemWidth = cellWidth * 0.8;
-  //      at(...food.array(), () => box(itemWidth));
-  //     stroke(255, 0, 0);
-  //     fill(255, 0, 0, 60);
-  //     drawReferenceStructures(food, itemWidth);
-  //      break;
-  //     default : case 1:
-  //      break;
-  // } 
-  // }
 }
-
-
-// function drawPoison(){
-//   noStroke();
-//   // texture(foodImage);
-//   const itemWidth = cellWidth * 0.8;
-//   at(...food.array(), () => box(itemWidth));
-
-//   stroke(255, 0, 0);
-//   fill('blue');
-//   drawReferenceStructures(food, itemWidth);
-// }
 
 function drawReferenceStructures(pos, objWidth) {
   const l = arenaWidth / 2; // Largest coordinate value
@@ -330,7 +294,6 @@ function drawScore(){
 
   background('skyblue');
   texture(_text);
-  rotateY(map(mouseX, 0, width, 0, 3));
   plane(window.innerWidth, window.innerHeight);
 
 }
